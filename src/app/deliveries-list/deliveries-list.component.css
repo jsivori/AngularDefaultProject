@@ -1,0 +1,16 @@
+:host {
+    min-width: 100%;
+}
+
+.container {
+    display: inline-block;
+    min-width: 100%;
+}
+
+.right-btn {
+    float: right;
+}
+
+h2 {
+    float: left;
+}

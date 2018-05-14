@@ -1,0 +1,98 @@
+<div class="panel">
+    <div class="card-header">
+        {{ title }}
+    </div>
+    <div class="card-body">
+        <form>
+
+            <div class="card card-primary">
+                <div class="card-header">Datos Administrativos</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="col-4">Nombre</label>
+                                <input type="text" class="form-control" name="nombre" />
+                            </div>
+                            <div class="form-group">
+                                <label class="col-4">Teléfono</label>
+                                <input type="text" class="form-control" name="telefono" />
+                            </div>
+                            <div class="form-group">
+                                <label class="col-4">Dirección</label>
+                                <input type="text" class="form-control" name="direccion" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="col-4">Descripción</label>
+                                <textarea class="form-control" name="descripcion"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-4">Especialidades</label>
+                                <textarea class="form-control" name="especialidades"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-4">Horario de Atención</label>
+                                <input type="time" class="form-control" name="desde" /> a
+                                <input type="time" class="form-control" name="hasta" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-primary">
+                <div class="card-header">Contacto Comercial</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="col-4">Nombre</label>
+                        <input type="text" class="form-control" name="cc_nombre" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-4">Apellido</label>
+                        <input type="text" class="form-control" name="cc_apellido" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-4">Teléfono</label>
+                        <input type="text" class="form-control" name="cc_telefono" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-4">Email</label>
+                        <input type="email" class="form-control" name="cc_email" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-primary">
+                <div class="card-header">Contacto Administrativo</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="col-4">Nombre</label>
+                        <input type="text" class="form-control" name="ca_nombre" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-4">Apellido</label>
+                        <input type="text" class="form-control" name="ca_apellido" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-4">Teléfono</label>
+                        <input type="text" class="form-control" name="ca_telefono" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-4">Email</label>
+                        <input type="email" class="form-control" name="ca_email" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="buttons-panel col-md-12 form-group">
+                <button type="submit" class="btn btn-primary">Cancelar</button>
+                <button type="submit" class="btn btn-primary disabled">Crear Delivery</button>
+            </div>
+        </form>
+    </div>
+</div>
