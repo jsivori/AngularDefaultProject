@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Sobre</h1>
+
+    <ul>
+        <li> {{ name }} {{ surname }}</li>
+        <li>
+            Escribime a <a href="mailto:{{ email }}?Subject=Despegar%20App" target="_top">{{ email }}</a>
+        </li>
+        <li>
+            <a href={{cv}} target="_blank"> Visita mi CV online!</a>
+        </li>
+        <li>
+            <span *ngFor="let description of app_description">{{ description }}</span>
+        </li>
+    </ul>
+
+</div>

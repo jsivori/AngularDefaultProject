@@ -1,0 +1,15 @@
+.container {
+    display: block;
+    background-color: lightgray;
+    border-radius: 8px;
+    box-shadow: 3px 4px 4px lightslategray;
+    align-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    padding: 2em;
+}
