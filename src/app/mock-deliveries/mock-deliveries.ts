@@ -43,4 +43,16 @@ export const deliveries: Delivery[] = [
         contacto_administrativo: contacto_administrativo_1,
         contacto_comercial: contacto_comercial_1
     },
+    {
+        id: 2,
+        nombre: 'Thionis',
+        descripcion: 'Helados',
+        especialidades: 'Helados y Postres',
+        direccion: 'La Plata',
+        horario_desde: '10:00',
+        horario_hasta: '22:00',
+        telefono: '2214567345',
+        contacto_administrativo: contacto_administrativo_2,
+        contacto_comercial: contacto_comercial_2
+    },
 ]

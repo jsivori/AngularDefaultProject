@@ -14,17 +14,16 @@ export class AppGridComponent implements OnInit {
   @Input('options') gridOptions: Array<any>;
   @Input('data') dataForGrid: Array<any>;
 
-  public deliveries: Delivery[];
+  public deliveries : Delivery[];
   public rows = [];
-  public deliveryToDelete: Delivery;
+  public deliveryToDelete : Delivery;
 
-  public page: number = 1;
-  public itemsPerPage: number = 15;
-  public maxSize: number = 5;
-  public numPages: number = 1;
-  public length: number = 0;
-
-  public config: any = {
+  public page : number = 1;
+  public itemsPerPage : number = 10;
+  public maxSize : number = 5;
+  public numPages : number = 1;
+  public length : number = 0;
+  public config : any = {
     paging: true,
     sorting: { columns: this.gridOptions },
     filtering: { filterString: '' },
@@ -32,12 +31,10 @@ export class AppGridComponent implements OnInit {
   };
   public editButton = '<a data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></a></td>';
   public deleteButton = '<a (click)="confirmPopup()" data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a>';
-
-  private data: Array<any>;
+  private data : Array<any>;
 
   public constructor(private deliveryService: DeliveryService, private _router: Router) {
   }
-
 
   addEditAndDelete(data, editButton, deleteButton) {
     for (var i = 0; i < data.length; i++) {
@@ -60,6 +57,8 @@ export class AppGridComponent implements OnInit {
   }
 
   public changeSort(data: any, config: any): any {
+    //console.log(config.sorting);
+    //console.log(this.config.sorting.columns);
     if (!config.sorting) {
       return data;
     }
@@ -135,11 +134,24 @@ export class AppGridComponent implements OnInit {
     }
 
     let filteredData = this.changeFilter(this.data, this.config);
+    //console.log(this.config);
+    //console.log(this.gridOptions);
     let sortedData = this.changeSort(filteredData, this.config);
     this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
     this.length = sortedData.length;
   }
 
+  public setSortingColumns(): any {
+    if (!this.config.sorting){
+      this.config.sorting.columns = [];
+      this.gridOptions.forEach((column: any) => {
+        if (column.sort){
+          this.config.sorting.columns.push(column.name);
+        };
+      })
+    }
+  }
+  
   public onCellClick(data: any): any {
 
     if (data.column == "delete") {
@@ -167,6 +179,10 @@ export class AppGridComponent implements OnInit {
   ngOnInit() {
     this.length = this.dataForGrid.length;
     this.data = this.addEditAndDelete(this.dataForGrid, this.editButton, this.deleteButton);
+    console.log(this.config);
+    this.setSortingColumns();
+    console.log(this.config);
+    
     this.onChangeTable(this.config);
   }
 }

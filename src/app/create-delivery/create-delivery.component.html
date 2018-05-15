@@ -27,7 +27,7 @@
                 <div class="form-horizontal form-group row">
                     <label class="col-sm-3 col-md-2 control-label">Tel&eacute;fono *</label>
                     <div class="col-sm-3">
-                        <input placeholder="Ejemplo: +54 9 11 36392394" pattern="^[0-9\-\+\s\(\)]*$" name="administrativeTelephone" #telephone="ngModel" [(ngModel)]="delivery.telefono" class="form-control" type="tel" required maxlength="50" />
+                        <input placeholder="Ejemplo: +54 9 221 4345675" pattern="^[0-9\-\+\s\(\)]*$" name="administrativeTelephone" #telephone="ngModel" [(ngModel)]="delivery.telefono" class="form-control" type="tel" required maxlength="50" />
                         <div *ngIf="telephone.errors && (telephone.dirty || telephone.touched)" class="alert alert-danger">
                             <div [hidden]="!telephone.errors.required">
                                 El tel&eacute;fono es requerido
@@ -147,7 +147,7 @@
                         <div class="form-horizontal form-group row">
                             <label class="col-sm-7 col-md-4 control-label">Tel&eacute;fono *</label>
                             <div class="col-sm-6">
-                                <input placeholder="Ejemplo: +54 9 11 36392394" pattern="^[0-9\-\+\s\(\)]*$" name="adTelephone" #adTelephone="ngModel" [(ngModel)]="delivery.contacto_administrativo.telefono" class="form-control" type="tel" maxlength="100" required />
+                                <input placeholder="Ejemplo: +54 9 221 4324567" pattern="^[0-9\-\+\s\(\)]*$" name="adTelephone" #adTelephone="ngModel" [(ngModel)]="delivery.contacto_administrativo.telefono" class="form-control" type="tel" maxlength="100" required />
                                 <div *ngIf="adTelephone.errors && (adTelephone.dirty || adTelephone.touched)" class="alert alert-danger">
                                     <div [hidden]="!adTelephone.errors.required">
                                         El tel&eacute;fono es requerido
@@ -213,7 +213,7 @@
                             <div class="form-horizontal form-group row">
                                 <label class="col-sm-7 col-md-4 control-label">Tel&eacute;fono *</label>
                                 <div class="col-sm-6">
-                                    <input placeholder="Ejemplo: +54 9 11 36392394" pattern="^[0-9\-\+\s\(\)]*$" name="coTelephone" #coTelephone="ngModel" [(ngModel)]="delivery.contacto_comercial.telefono" class="form-control" type="tel" type="tel" maxlength="100" required/>
+                                    <input placeholder="Ejemplo: +54 9 221 4567890" pattern="^[0-9\-\+\s\(\)]*$" name="coTelephone" #coTelephone="ngModel" [(ngModel)]="delivery.contacto_comercial.telefono" class="form-control" type="tel" type="tel" maxlength="100" required/>
                                     <div *ngIf="coTelephone.errors && (coTelephone.dirty || coTelephone.touched)" class="alert alert-danger">
                                         <div [hidden]="!coTelephone.errors.required">
                                             El tel&eacute;fono es requerido
@@ -242,7 +242,7 @@
                     </div>
                     <div class="col-sm-11">
                         <div class="text-right">
-                            <a class="btn btn-default btn-rounded" routerLink="">Cancelar</a>
+                            <a class="btn btn-default btn-rounded" routerLink="/index">Cancelar</a>
                             <button class="btn btn-primary pull-right btn-rounded" type="submit" [disabled]="!deliveryForm.valid">Guardar</button>
                         </div>
                     </div>
