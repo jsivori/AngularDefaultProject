@@ -28,11 +28,10 @@ export class CreateDeliveryComponent implements OnInit {
     this._route.params.forEach((params: Params) => {
       let id = params['id'];
       if (id != undefined) {
-        console.log('formulario edición de delivery cargado');
         this.getDelivery();
         this.title = 'Editar delivery';
-      } else {
-        console.log('formulario carga de delivery cargado');
+      } 
+      else {
         this.title = 'Crear nuevo delivery';
       }
     });
@@ -61,7 +60,7 @@ export class CreateDeliveryComponent implements OnInit {
 
   onSubmit() {
     this.deliveryService.saveOrUpdateDelivery(this.delivery, this.selectIdem);
-    this._router.navigate(['/']);
+    this._router.navigate(['/index']);
   }
 
   checkIdem(e) {

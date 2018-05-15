@@ -8,12 +8,7 @@ export class DeliveryService {
 
   constructor() { }
 
-  updateDelivery(delivery_to_update) {
-    console.log('function to update delivery');
-  }
-
   saveOrUpdateDelivery(delivery, selectIdem) {
-    console.log('Save the delivery: ');
     var lastID = deliveries.length + 1;
 
     if (selectIdem) {

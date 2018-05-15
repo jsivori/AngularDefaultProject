@@ -11,35 +11,35 @@ export const contacto_administrativo_1 : Contact = {
 };
 
 export const contacto_administrativo_2: Contact = {
-    nombre: 'Antonela',
-    apellido: 'Rodriguez',
+    nombre: 'Felipe',
+    apellido: 'Martinez',
     telefono: '4567890',
-    email: 'anto.rodriguez@gmail.com',
+    email: 'felipe.martinez@gmail.com',
 };
 
 export const contacto_comercial_1 : Contact = {
-    nombre: 'Antonela',
-    apellido: 'Rodriguez',
+    nombre: 'Mariano',
+    apellido: 'Gonzalez',
     telefono: '4567890',
-    email: 'anto.rodriguez@gmail.com',
+    email: 'marian.gonzalez@gmail.com',
 };
 
 export const contacto_comercial_2 : Contact = {
-    nombre: 'Antonela',
-    apellido: 'Rodriguez',
+    nombre: 'Jimena',
+    apellido: 'Tesla',
     telefono: '4567890',
-    email: 'anto.rodriguez@gmail.com',
+    email: 'jime.tesla@gmail.com',
 };
 
 export const deliveries: Delivery[] = [
     {   id: 1,
-        nombre: 'El noble',
-        descripcion: '¿Vos de qué querés?',
+        nombre: 'Pollenza',
+        descripcion: 'Pizzas en todo su estilo',
         especialidades: 'Pizza y empanadas',
         direccion: 'La Plata',
         horario_desde: '10:00',
-        horario_hasta: '23:00',
-        telefono: '2214230123',
+        horario_hasta: '22:00',
+        telefono: '2214678904',
         contacto_administrativo: contacto_administrativo_1,
         contacto_comercial: contacto_comercial_1
     },
