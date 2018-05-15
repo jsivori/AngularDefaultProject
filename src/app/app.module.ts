@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core'; 
 import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { FormsModule } from '@angular/forms';
 
 import { app_routes } from './app.routes';
 
@@ -36,6 +37,7 @@ import { DeliveryService } from './delivery.service'
     BrowserModule,
     app_routes,
     AmazingTimePickerModule,
+    FormsModule,
   ],
   providers: [
     DeliveryService
