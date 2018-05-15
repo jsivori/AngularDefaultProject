@@ -1,7 +1,18 @@
-<div class="container">
-    <h2>Listado de Deliveries</h2>
-
-    <button type="button" class="btn btn-primary right-btn">Crear Delivery</button>
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <h4>Listado de deliveries</h4>
+                </div>
+                <div class="col-md-3 col-md-offset-5">
+                    <button routerLink="/create" class="btn btn-primary right-btn" type="button">
+                        <i class="fa fa-motorcycle"></i> Crear Delivery</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<app-grid class="container"></app-grid>
+<div>
+    <app-grid [options]="columns" [data]="deliveryList"></app-grid>
+</div>
