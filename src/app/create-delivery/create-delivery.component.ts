@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from '../models/contact.model';
 
 @Component({
   selector: 'app-create-delivery',
@@ -7,16 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateDeliveryComponent implements OnInit {
   public title : string;
+  public delivery : Contact;
 
   constructor() {
-    this.grabar();
+    this.delivery = new Contact('','','','')
+    //this.localStorageSave();
   }
-
-  grabar() {
+/*
+  localStorageSave() {
     console.log("asdasd");
     localStorage.setItem("item", "asdasd");
   }
-
+*/
   ngOnInit() {
     this.title = "Nuevo Delivery";
     
