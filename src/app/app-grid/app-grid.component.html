@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <input *ngIf="config.filtering" placeholder="Filtrar todas las columnas" [ngTableFiltering]="config.filtering" class="form-control" (tableChanged)="onChangeTable(config)" />
+        </div>
+    </div>
+    <br>
+
+    <ng-table [config]="config" (cellClicked)="onCellClick($event)" (tableChanged)="onChangeTable(config)" [rows]="rows" [columns]="gridOptions">
+    </ng-table>
+    <pagination *ngIf="config.paging" class="pagination-sm" [(ngModel)]="page" [totalItems]="length" [itemsPerPage]="itemsPerPage" [maxSize]="maxSize" [boundaryLinks]="true" [rotate]="false" (pageChanged)="onChangeTable(config, $event)" (numPages)="numPages = $event">
+    </pagination>
+    <pre *ngIf="config.paging" class="panel panel-primary">Página: {{page}} / {{numPages}} </pre>
+</div>

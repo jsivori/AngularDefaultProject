@@ -1,0 +1,253 @@
+<div class="wrapper-md">
+    <form #deliveryForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="panel panel-default">
+            <div class="panel-heading font-bold">
+                <h4>{{title}}</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <label class="col-sm-3 col-md-1 control-label"></label>
+                    <div class="col-sm-9 col-md-11">
+                        <div class="page-header">
+                            <h3>Datos administrativos</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal form-group row">
+                    <label class="col-sm-3 col-md-2 control-label">Nombre *</label>
+                    <div class="col-sm-3">
+                        <input name="administrativeName" #name="ngModel" [(ngModel)]="delivery.nombre" class="form-control" type="text" required maxlength="50" />
+                        <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+                            <div [hidden]="!name.errors.required">
+                                El nombre es requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal form-group row">
+                    <label class="col-sm-3 col-md-2 control-label">Tel&eacute;fono *</label>
+                    <div class="col-sm-3">
+                        <input placeholder="Ejemplo: +54 9 11 36392394" pattern="^[0-9\-\+\s\(\)]*$" name="administrativeTelephone" #telephone="ngModel" [(ngModel)]="delivery.telefono" class="form-control" type="tel" required maxlength="50" />
+                        <div *ngIf="telephone.errors && (telephone.dirty || telephone.touched)" class="alert alert-danger">
+                            <div [hidden]="!telephone.errors.required">
+                                El tel&eacute;fono es requerido
+                            </div>
+                            <div [hidden]="!telephone.errors.pattern">
+                                El tel&eacute;fono inválido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal form-group row">
+                    <label class="col-sm-3 col-md-2 control-label">Descripci&oacute;n *</label>
+                    <div class="col-sm-3">
+                        <textarea name="descripcionAdministrativo" #description="ngModel" [(ngModel)]="delivery.descripcion" class="form-control" required maxlength="1000"></textarea>
+                        <div *ngIf="description.errors && (description.dirty || description.touched)" class="alert alert-danger">
+                            <div [hidden]="!description.errors.required">
+                                La descripci&oacute;n es requerida
+                            </div>
+                        </div>
+                        <div class="form-row__description">
+                            Escribiendo {{ delivery.descripcion.length }} de 1000 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal form-group row">
+                    <label class="col-sm-3 col-md-2 control-label">Especialidad</label>
+                    <div class="col-sm-3">
+                        <textarea name="especialidadAdministrativo" [(ngModel)]="delivery.especialidades" class="form-control" maxlength="500"></textarea>
+                        <div class="form-row__description">
+                            Escribiendo {{ delivery.especialidades.length }} de 500 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal form-group row">
+                    <label class="col-sm-3 col-md-2 control-label">Direcci&oacute;n *</label>
+                    <div class="col-sm-3">
+                        <input name="direccionAdministrativo" #location="ngModel" [(ngModel)]="delivery.direccion" class="form-control" type="text" required maxlength="200" />
+                        <div *ngIf="location.errors && (location.dirty || location.touched)" class="alert alert-danger">
+                            <div [hidden]="!location.errors.required">
+                                La direcci&oacute;n es requerida
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal form-group row">
+                    <label class="col-sm-3 col-md-2 control-label">Horario de atenci&oacute;n *</label>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="input-group bootstrap-timepicker">
+                                    <span (click)="openFrom()" class="input-group-addon">
+                                        <i class="glyphicon glyphicon-time"></i>
+                                    </span>
+                                    <input placeholder="Desde" id="timeStart" name="hourFrom" #hourFrom="ngModel" [(ngModel)]="delivery.horario_desde" type="time" class="form-control input-small" required>
+                                </div>
+                                <div *ngIf="hourFrom.errors && (hourFrom.dirty || hourFrom.touched)" class="alert alert-danger">
+                                    <div [hidden]="!hourFrom.errors.required">
+                                        Ingrese horario
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-1 text-center wrapper-xs">
+                                <span></span>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="input-group bootstrap-timepicker">
+                                    <span (click)="openTo()" class="input-group-addon">
+                                        <i class="glyphicon glyphicon-time"></i>
+                                    </span>
+                                    <input placeholder="Hasta" id="timeFinish" name="hourTo" #hourTo="ngModel" [(ngModel)]="delivery.horario_hasta" type="time" class="form-control input-small" required>
+                                </div>
+                                <div *ngIf="hourTo.errors && (hourTo.dirty || hourTo.touched)" class="alert alert-danger">
+                                    <div [hidden]="!hourTo.errors.required">
+                                        Ingrese horario
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <label class="col-sm-5 col-md-2 control-label"></label>
+                            <div class="col-sm-7 col-md-10">
+                                <div class="page-header">
+                                    <h3>Contacto administrativo</h3>
+                                </div>
+                                <div class="">
+                                    <label>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-group row">
+                            <label class="col-sm-7 col-md-4 control-label">Nombre *</label>
+                            <div class="col-sm-6">
+                                <input name="adContactName" #adContactName="ngModel" [(ngModel)]="delivery.contacto_administrativo.nombre" class="form-control" type="text" maxlength="200" required/>
+                                <div *ngIf="adContactName.errors && (adContactName.dirty || adContactName.touched)" class="alert alert-danger">
+                                    <div [hidden]="!adContactName.errors.required">
+                                        El nombre es requerido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-group row">
+                            <label class="col-sm-7 col-md-4 control-label">Apellido *</label>
+                            <div class="col-sm-6">
+                                <input name="adContactLastname" #adContactLastname="ngModel" [(ngModel)]="delivery.contacto_administrativo.apellido" class="form-control" type="text" maxlength="200" required/>
+                                <div *ngIf="adContactLastname.errors && (adContactLastname.dirty || adContactLastname.touched)" class="alert alert-danger">
+                                    <div [hidden]="!adContactLastname.errors.required">
+                                        El apellido es requerido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-group row">
+                            <label class="col-sm-7 col-md-4 control-label">Tel&eacute;fono *</label>
+                            <div class="col-sm-6">
+                                <input placeholder="Ejemplo: +54 9 11 36392394" pattern="^[0-9\-\+\s\(\)]*$" name="adTelephone" #adTelephone="ngModel" [(ngModel)]="delivery.contacto_administrativo.telefono" class="form-control" type="tel" maxlength="100" required />
+                                <div *ngIf="adTelephone.errors && (adTelephone.dirty || adTelephone.touched)" class="alert alert-danger">
+                                    <div [hidden]="!adTelephone.errors.required">
+                                        El tel&eacute;fono es requerido
+                                    </div>
+                                    <div [hidden]="!adTelephone.errors.pattern">
+                                        El tel&eacute;fono inválido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-group row">
+                            <label class="col-sm-7 col-md-4 control-label">Email *</label>
+                            <div class="col-sm-6">
+                                <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="adEmail" #adEmail="ngModel" [(ngModel)]="delivery.contacto_administrativo.email" class="form-control" type="email" maxlength="100" required/>
+                                <div *ngIf="adEmail.errors && (adEmail.dirty || adEmail.touched)" class="alert alert-danger">
+                                    <div [hidden]="!adEmail.errors.required">
+                                        El email es requerido
+                                    </div>
+                                    <div [hidden]="!adEmail.errors.pattern">
+                                        El formato de email inválido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <label class="col-sm-5 col-md-2 control-label"></label>
+                            <div class="col-sm-7 col-md-10">
+                                <div class="page-header">
+                                    <h3>Contacto comercial</h3>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input (change)="checkIdem($event)" type="checkbox"> Idem contacto administrativo
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!selectIdem">
+                            <div class="form-horizontal form-group row ">
+                                <label class="col-sm-7 col-md-4 control-label">Nombre *</label>
+                                <div class="col-sm-6">
+                                    <input name="coName" #coName="ngModel" [(ngModel)]="delivery.contacto_comercial.nombre" class="form-control" type="text" maxlength="200" required/>
+                                    <div *ngIf="coName.errors && (coName.dirty || coName.touched)" class="alert alert-danger">
+                                        <div [hidden]="!coName.errors.required">
+                                            El nombre es requerido
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal form-group row">
+                                <label class="col-sm-7 col-md-4 control-label">Apellido *</label>
+                                <div class="col-sm-6">
+                                    <input name="coLastname" #coLastname="ngModel" [(ngModel)]="delivery.contacto_comercial.apellido" class="form-control" type="text" maxlength="200" required/>
+                                    <div *ngIf="coLastname.errors && (coLastname.dirty || coLastname.touched)" class="alert alert-danger">
+                                        <div [hidden]="!coLastname.errors.required">
+                                            El apellido es requerido
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal form-group row">
+                                <label class="col-sm-7 col-md-4 control-label">Tel&eacute;fono *</label>
+                                <div class="col-sm-6">
+                                    <input placeholder="Ejemplo: +54 9 11 36392394" pattern="^[0-9\-\+\s\(\)]*$" name="coTelephone" #coTelephone="ngModel" [(ngModel)]="delivery.contacto_comercial.telefono" class="form-control" type="tel" type="tel" maxlength="100" required/>
+                                    <div *ngIf="coTelephone.errors && (coTelephone.dirty || coTelephone.touched)" class="alert alert-danger">
+                                        <div [hidden]="!coTelephone.errors.required">
+                                            El tel&eacute;fono es requerido
+                                        </div>
+                                        <div [hidden]="!coTelephone.errors.pattern">
+                                            El tel&eacute;fono inválido
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal form-group row">
+                                <label class="col-sm-7 col-md-4 control-label">Email *</label>
+                                <div class="col-sm-6">
+                                    <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="coEmail" #coEmail="ngModel" [(ngModel)]="delivery.contacto_comercial.email" class="form-control" type="email" maxlength="100" required />
+                                    <div *ngIf="coEmail.errors && (coEmail.dirty || coEmail.touched)" class="alert alert-danger">
+                                        <div [hidden]="!coEmail.errors.required">
+                                            El email es requerido
+                                        </div>
+                                        <div [hidden]="!coEmail.errors.pattern">
+                                            El formato de email inválido
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-11">
+                        <div class="text-right">
+                            <a class="btn btn-default btn-rounded" routerLink="">Cancelar</a>
+                            <button class="btn btn-primary pull-right btn-rounded" type="submit" [disabled]="!deliveryForm.valid">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
