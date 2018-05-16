@@ -21,11 +21,11 @@ export class AppGridComponent implements OnInit {
   public page : number = 1;
   public itemsPerPage : number = 10;
   public maxSize : number = 5;
-  public numPages : number = 1;
+
   public length : number = 0;
   public config : any = {
     paging: true,
-    sorting: { columns: this.gridOptions },
+    sorting: { columns: [] },
     filtering: { filterString: '' },
     className: ['table-striped', 'table-bordered']
   };
@@ -57,9 +57,7 @@ export class AppGridComponent implements OnInit {
   }
 
   public changeSort(data: any, config: any): any {
-    //console.log(config.sorting);
-    //console.log(this.config.sorting.columns);
-    if (!config.sorting) {
+    if (config.sorting.columns.length == 0) {
       return data;
     }
 
@@ -134,19 +132,16 @@ export class AppGridComponent implements OnInit {
     }
 
     let filteredData = this.changeFilter(this.data, this.config);
-    //console.log(this.config);
-    //console.log(this.gridOptions);
     let sortedData = this.changeSort(filteredData, this.config);
     this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
     this.length = sortedData.length;
   }
 
   public setSortingColumns(): any {
-    if (!this.config.sorting){
-      this.config.sorting.columns = [];
+    if (!(this.config.sorting.length > 0)){
       this.gridOptions.forEach((column: any) => {
         if (column.sort){
-          this.config.sorting.columns.push(column.name);
+          this.config.sorting.columns.push(column);
         };
       })
     }
@@ -179,10 +174,7 @@ export class AppGridComponent implements OnInit {
   ngOnInit() {
     this.length = this.dataForGrid.length;
     this.data = this.addEditAndDelete(this.dataForGrid, this.editButton, this.deleteButton);
-    console.log(this.config);
-    this.setSortingColumns();
-    console.log(this.config);
-    
+    this.setSortingColumns();    
     this.onChangeTable(this.config);
   }
 }

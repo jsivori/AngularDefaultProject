@@ -34,7 +34,9 @@ export class DeliveriesListComponent implements OnInit {
       { title: 'Teléfono', name: 'telefono', sort: 'asc', filtering: { filterString: '', placeholder: 'Filtrar por teléfono' } },
       { title: 'Dirección', name: 'direccion', sort: 'asc', filtering: { filterString: '', placeholder: 'Filtrar por dirección' } },
       { title: 'Especialidades', name: 'especialidades', sort: 'asc', filtering: { filterString: '', placeholder: 'Filtrar por especialidad' } },
-      { title: '', name: 'edit' }, { title: '', name: 'delete' }];
+      { title: '', name: 'edit' }, 
+      { title: '', name: 'delete' }
+    ];
   }
 
   ngOnInit() {
