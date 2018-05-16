@@ -1,23 +1,26 @@
 .container {
-    display: block;
-    background-color: #343a40!important;
-    border-radius: 8px;
-    box-shadow: 3px 4px 4px lightslategray;
-    align-content: center;
-    color: white;
-    padding: 1em;
-    max-width: 500px;
-    min-width: 500px;
-    max-height: 400px;
-    min-height: 400px;
+    padding: 0em;
 }
 
-h1 {
+.centered {
     text-align: center;
 }
 
 img {
     padding: 2em;
-    width: 470px;
-    height: 330px;
+    width: 40%;
+    display: inline;
+}
+
+h4 {
+    text-align: center;
+    font-size: 2em;
+}
+
+img#angular {
+    width: 20%;
+}
+
+img#delivery {
+    width: 30%;
 }

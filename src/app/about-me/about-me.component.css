@@ -1,27 +1,13 @@
 .container {
-    display: block;
-    background-color: #343a40!important;
-    border-radius: 8px;
-    box-shadow: 3px 4px 4px lightslategray;
-    align-content: center;
-    color: white;
-    padding: 1em;
-}
-
-h1 {
-    text-align: center;
+    padding: 0em;
 }
 
 a {
     text-decoration: none;
     cursor: pointer;
-    color: white;
+    color: navy;
 }
 
 a:hover {
     color: grey;
-}
-
-span {
-    display: inline-block;
 }

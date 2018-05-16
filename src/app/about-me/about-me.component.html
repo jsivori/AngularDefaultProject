@@ -1,17 +1,21 @@
-<div class="container">
-    <h1>Sobre</h1>
+<div class="panel panel-primary container">
+    <div class="panel-heading">
+        <h4>{{title}}</h4>
+    </div>
 
-    <ul>
-        <li> {{ name }} {{ surname }}</li>
-        <li>
-            Escribime a <a href="mailto:{{ email }}?Subject=Despegar%20App" target="_top">{{ email }}</a>
-        </li>
-        <li>
-            <a href={{cv}} target="_blank"> Visita mi CV online!</a>
-        </li>
-        <li>
-            <span *ngFor="let description of app_description">{{ description }}</span>
-        </li>
-    </ul>
+    <div class="panel-body">
+        <ul>
+            <li> {{ name }} {{ surname }}</li>
+            <li>
+                Escribime a <a href="mailto:{{ email }}?Subject=Despegar%20App" target="_top">{{ email }}</a>
+            </li>
+            <li> {{ telephone }} </li>
+            <li>
+                <a href={{cv}} target="_blank"> Visita mi CV online!</a>
+            </li>
+        </ul>
 
+        <p *ngFor="let description of app_description">{{ description }}</p>
+        <p *ngFor="let observation of observations">{{ observation }}</p>
+    </div>
 </div>

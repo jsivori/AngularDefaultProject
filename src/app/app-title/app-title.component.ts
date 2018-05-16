@@ -7,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppTitleComponent implements OnInit {
   public title : string;
-  public image : string;
+  public image: string;
+  public image_despegar: string;
+  public image_angular : string;
 
   constructor() { }
 
   ngOnInit() {
-    this.title = "Bienvenido a DeliveryApp";
+    this.title = "Bienvenido";
+    this.image_despegar = "../assets/img/despegar.jpg";
+    this.image_angular = "../assets/img/angular.png";
     this.image = "../assets/img/delivery-img.jpeg";
   }
 
